@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <td>title</td>
+        <td>user</td>
+    </tr>
+    <% @calendars.each do |calendar| %>
+    <tr>
+        <td><%= calendar.title %></td>
+        <td><%= calendar.user.username %></td>
+    </tr>
+    <% end %>
+</table>

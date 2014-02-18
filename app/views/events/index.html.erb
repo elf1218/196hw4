@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <td>time</td>
+        <td>description</td>
+        <td>user</td>
+        <td>calendar</td>
+    </tr>
+    <% @events.each do |event| %>
+    <tr>
+        <td><%= event.time %></td>
+        <td><%= event.desc %></td>
+        <td><%= event.user.username %></td>
+        <td><%= event.calendar.title %></td>
+    </tr>
+    <% end %>
+</table>

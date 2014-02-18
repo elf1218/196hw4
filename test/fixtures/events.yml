@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2014-02-17 20:39:08
+  desc: MyString
+  user_id: 
+  calendar_id: 
+
+two:
+  time: 2014-02-17 20:39:08
+  desc: MyString
+  user_id: 
+  calendar_id: 

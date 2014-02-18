@@ -1,0 +1,21 @@
+<%= form_for(@event) do |f| %>
+    <div class="field">
+        <p>time</p>
+        <%= f.datetime_select :time%>
+    </div>
+    <div class="field">
+        <p>description</p>
+        <%= f.text_field :desc%>
+    </div>
+    <div class="field">
+        <p>user</p>
+        <%= f.collection_select :user_id, User.all, :id, :username %>
+    </div>
+    <div class="field">
+        <p>calendar</p>
+        <%= f.collection_select :calendar_id, Calendar.all, :id, :title %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

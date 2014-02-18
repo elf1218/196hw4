@@ -8,7 +8,32 @@
 </head>
 <body>
 
-<%= yield %>
+    <div class="navbar">
+        <ul class="nav">
+            <li class='dropdown'><a class="nav-link" href="#">Users</a>
+                <ul>
+                    <li><%= link_to "new user", new_user_path %></li>
+                    <li><%= link_to "all users", users_path %></li>
+                </ul>
+            </li>
+            <li class='dropdown'><a class="nav-link" href="#">Calendars</a>
+                <ul>
+                    <li><%= link_to "new calendar", new_calendar_path %></li>
+                    <li><%= link_to "all calendars", calendars_path %></li>
+                </ul>
+            </li>
+            <li class='dropdown'><a class="nav-link" href="#">Events</a>
+                <ul>
+                    <li><%= link_to "new event", new_event_path %></li>
+                    <li><%= link_to "all events", events_path %></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+<div class="content">
+    <%= yield %>
+</div>
 
 </body>
 </html>
