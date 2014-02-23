@@ -1,2 +1,13 @@
-<h1>Calendars#edit</h1>
-<p>Find me in app/views/calendars/edit.html.erb</p>
+<%= form_for(@calendar) do |f| %>
+    <div class="field">
+        <p>title</p>
+        <%= f.text_field :title%>
+    </div>
+    <div class="field">
+        <p>user</p>
+        <%= f.collection_select :user_id, User.all, :id, :username %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

@@ -5,8 +5,12 @@
     </tr>
     <% @calendars.each do |calendar| %>
     <tr>
-        <td><%= calendar.title %></td>
+        <td><%= link_to calendar.title, calendar_path(calendar.id) %></td>
         <td><%= calendar.user.username %></td>
+        <td><%= link_to "edit calendar", edit_calendar_path(calendar.id) %> </td>
+        <td>
+            <%= link_to "destroy calendar", calendar, confirm: "you sure you want to do this?", method: :delete %>
+        </td>
     </tr>
     <% end %>
 </table>

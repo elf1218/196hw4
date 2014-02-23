@@ -8,9 +8,11 @@
     <% @events.each do |event| %>
     <tr>
         <td><%= event.time %></td>
-        <td><%= event.desc %></td>
+        <td><%= link_to event.desc, event_path(event.id) %></td>
         <td><%= event.user.username %></td>
         <td><%= event.calendar.title %></td>
+        <td><%= link_to "edit event", edit_event_path(event.id) %> </td>
+        <td><%= link_to "destroy event", event, confirm: "you sure you want to do this?", method: :delete %></td>
     </tr>
     <% end %>
 </table>
