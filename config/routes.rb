@@ -1,5 +1,5 @@
 Hw4::Application.routes.draw do
-  devise_for :users
+  devise_for:users
   resources:events
   resources:calendars
   root 'home#index'
