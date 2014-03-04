@@ -4,15 +4,23 @@ class CalendarsController < ApplicationController
   end
 
   def new
-    @calendar=Calendar.new
+    if user_signed_in?
+      @calendar = Calendar.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
     @calendar=Calendar.new(calendar_params)
-    if@calendar.save
-        redirect_to calendars_path
+    if @calendar.user_id != current_user.id
+      redirect_to root_path
     else
-        render 'new'
+      if@calendar.save
+          redirect_to calendars_path
+      else
+          render 'new'
+      end
     end
   end
 
@@ -21,12 +29,16 @@ class CalendarsController < ApplicationController
   end
 
   def update
-      @calendar = Calendar.find(params[:id])
+    @calendar = Calendar.find(params[:id])
+    if @calendar.user_id != current_user.id
+      render 'edit'
+    else
       if @calendar.update_attributes(calendar_params)
-          redirect_to calendar_path(@calendar.id)
+        redirect_to calendar_path(@calendar.id)
       else
-          render 'edit'
+        render 'edit'
       end
+    end
   end
 
   def destroy

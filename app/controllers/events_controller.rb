@@ -4,15 +4,23 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event=Event.new
+    if user_signed_in?
+      @event = Event.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
     @event=Event.new(event_params)
-    if@event.save
-        redirect_to events_path
-    else
-        render 'new'
+    if @event.user_id != current_user.id
+      redirect_to root_path
+      else
+      if@event.save
+          redirect_to events_path
+      else
+          render 'new'
+      end
     end
   end
 
@@ -22,10 +30,14 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update_attributes(event_params)
-        redirect_to event_path(@event.id)
+    if @event.user_id != current_user.id
+      render 'edit'
     else
-        render 'edit'
+      if @event.update_attributes(event_params)
+        redirect_to event_path(@event.id)
+      else
+          render 'edit'
+      end
     end
   end
 

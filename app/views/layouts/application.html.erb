@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hw5</title>
+  <title>Hw6</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,12 +10,6 @@
 
     <div class="navbar">
         <ul class="nav">
-            <li class='dropdown'><a class="nav-link" href="#">Users</a>
-                <ul>
-                    <li><%= link_to "new user", new_user_path %></li>
-                    <li><%= link_to "all users", users_path %></li>
-                </ul>
-            </li>
             <li class='dropdown'><a class="nav-link" href="#">Events</a>
                 <ul>
                     <li><%= link_to "new event", new_event_path %></li>
@@ -28,9 +22,25 @@
                     <li><%= link_to "all calendars", calendars_path %></li>
                 </ul>
             </li>
+            <% if !user_signed_in? %>
+            <li> 
+                <%=link_to "Login", new_user_session_path, :class => "nav-link" %>
+            </li>
+            <%else%>
+            <li>
+                <%=link_to "Edit Profile", edit_user_registration_path, :class => "nav-link" %>
+            </li>
+            <li>
+                <%=link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+            </li>
+
+            <%end%>
             
         </ul>
     </div>
+
+<p class="notice"><%= notice %></p>
+<p class="alerts"><%= alert %></p>
 
 <div class="content">
     <%= yield %>
