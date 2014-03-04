@@ -1,3 +1,3 @@
 HEROKU: http://polar-ravine-2265.herokuapp.com/
 
-This project was pretty easy and straightforward, pretty much entirely just following the posted pdf from last lecture and making some small adaptations to make it fit my database structure. There really wasn't much of note here, but it was still pretty interesting figuring out how stuff worked!
+HW6: again, fairly straight forward following the instructions from lecture - ran into some problems uploading to heroku, apparently heroku was complaining that I didn't have my private key set in devise. Read heroku error logs to figure that out. Otherwise, no real bugs.
