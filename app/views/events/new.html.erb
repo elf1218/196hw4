@@ -17,4 +17,14 @@
     <div class="actions">
         <%= f.submit %>
     </div>
+    <div class="error-msg"> 
+        <% if @event.errors.any? %> 
+            <ul> 
+                <% @event.errors.full_messages.each do |msg| %> 
+                <li><%= msg %></li> 
+                 <% end %> 
+             </ul> 
+         <% end %> 
+    </div> 
+
 <% end %>
