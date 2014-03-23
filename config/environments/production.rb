@@ -14,6 +14,16 @@ Hw4::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  #mailer stuff
+  config.action_mailer.default_url_options = {host: 'polar-ravine-2265.herokuapp.com'}
+  config.action_mailer.smtp_settigns = {
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => ENV['SENDGRID_DOMAIN']
+  }
+
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
