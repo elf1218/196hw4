@@ -16,7 +16,7 @@ Hw4::Application.configure do
 
   #mailer stuff
   config.action_mailer.default_url_options = {host: 'polar-ravine-2265.herokuapp.com'}
-  config.action_mailer.smtp_settigns = {
+  config.action_mailer.smtp_settings = {
     :address => 'smtp.sendgrid.net',
     :port => '587',
     :user_name => ENV['SENDGRID_USERNAME'],
