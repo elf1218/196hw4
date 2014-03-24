@@ -1,8 +1,3 @@
 HEROKU: http://polar-ravine-2265.herokuapp.com/
 
-HW7: Validations! I mainly had 2 fields I wanted to validate, the Calendar Title and the Event Description. For the calendar title, I decided it'd likely be less confusing if each calendar had a unique title, and therefore decided to validate its uniqueness. Furthermore, I thought it'd be a good idea for both calendar title and event desc to have to exist (presence: true) and less than 50 characters (being concise is good!). In total, I added 5 validations to those 2 fields.
-
-Calendar had validates :title, presence: true, uniqueness: true, length: {maximum: 50}
-Events had   validates :desc, length: {maximum: 50}, presence: true
-
-I encountered no major issues just following the instructions for this project, and I think it worked out well!
+HW8: Addons! Added email capabilities, specifically emails calendar creator when an event is made - tested it works. Overall, was pretty fun, mostly just following the guide from class. Had one bug that took me a while to figure out (had to sift through heroku logs which is difficult to interpret at first glance), turns out I made a typo so that was pretty unfortunate. Other than that, everything went quite smoothly.
