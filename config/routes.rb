@@ -4,6 +4,8 @@ Hw4::Application.routes.draw do
   resources :calendars
   root 'home#index'
   get "home/index"
+  get "mycal", to: "calendars#my"
+  get "myev", to: "events#my"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

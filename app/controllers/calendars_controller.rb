@@ -49,6 +49,16 @@ class CalendarsController < ApplicationController
 
   def show
       @calendar = Calendar.find(params[:id])
+      @events = Event.where(calendar_id: @calendar.id).order(time: :asc).limit(5)
+  end
+
+  def my
+      if user_signed_in?
+        @user = current_user
+        @calendars = Calendar.where(user_id: @user.id).order(title: :desc)
+      else
+        redirect_to new_user_session_path
+      end
   end
 
   private

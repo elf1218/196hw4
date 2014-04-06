@@ -52,6 +52,15 @@ class EventsController < ApplicationController
       redirect_to events_path
   end
 
+  def my
+      if user_signed_in?
+        @user = current_user
+        @events = Event.where(user_id: @user.id).order(time: :asc)
+      else
+        redirect_to new_user_session_path
+      end
+  end
+
   private
   def event_params
     params.require(:event).permit(:time, :desc, :user_id, :calendar_id)

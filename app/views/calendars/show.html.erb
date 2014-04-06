@@ -1,4 +1,13 @@
 <div>
     <h2>Title: <%= @calendar.title %></h2>
     <p>user: <%= @calendar.user.email %></p>
+
+    <h1><u>5 next events</u></h1>
+    </br>
+    <% @events.each do |event| %>
+        <div class = "dash-review">
+            <h2>Event: <%=link_to event.desc, event_path(event.id) %></h2>
+            <h5>Time: <%= event.time %></h5>
+        </div>
+    <%end%>
 </div>

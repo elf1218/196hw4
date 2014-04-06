@@ -1,0 +1,17 @@
+<h1>My Events</h1>
+<table>
+    <tr>
+        <td>time</td>
+        <td>description</td>
+        <td>calendar</td>
+    </tr>
+    <% @events.each do |event| %>
+    <tr>
+        <td><%= event.time %></td>
+        <td><%= link_to event.desc, event_path(event.id) %></td>
+        <td><%= link_to event.calendar.title, calendar_path(event.calendar.id) %></td>
+        <td><%= link_to "edit event", edit_event_path(event.id) %> </td>
+        <td><%= link_to "destroy event", event, confirm: "you sure you want to do this?", method: :delete %></td>
+    </tr>
+    <% end %>
+</table>

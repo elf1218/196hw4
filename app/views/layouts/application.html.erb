@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hw6</title>
+  <title>Hw9</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -14,12 +14,14 @@
                 <ul>
                     <li><%= link_to "new event", new_event_path %></li>
                     <li><%= link_to "all events", events_path %></li>
+                    <li><%= link_to "my events", myev_path %></li>
                 </ul>
             </li>
             <li class='dropdown'><a class="nav-link" href="#">Calendars</a>
                 <ul>
                     <li><%= link_to "new calendar", new_calendar_path %></li>
                     <li><%= link_to "all calendars", calendars_path %></li>
+                    <li><%= link_to "my calendars", mycal_path %></li>
                 </ul>
             </li>
             <% if !user_signed_in? %>
