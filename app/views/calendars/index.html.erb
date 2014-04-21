@@ -1,11 +1,11 @@
+<%= javascript_include_tag "timeline" %>
+
 <h1>All Calendars</h1>
 <button class="btn">Show Events</button>
 <table>
     <tr>
-        <h3>
-            <td>Title</td>
-            <td>User</td>
-        </h3>
+        <td>Title</td>
+        <td>User</td>
     </tr>
     <% @calendars.each do |calendar| %>
     <tr>
