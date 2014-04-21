@@ -1,12 +1,24 @@
+<h1>All Calendars</h1>
+<button class="btn">Show Events</button>
 <table>
     <tr>
-        <td>title</td>
-        <td>user</td>
+        <h3>
+            <td>Title</td>
+            <td>User</td>
+        </h3>
     </tr>
     <% @calendars.each do |calendar| %>
     <tr>
         <td><%= link_to calendar.title, calendar_path(calendar.id) %></td>
         <td><%= calendar.user.email %></td>
     </tr>
+    <tr class="events"><td>
+        <% calendar.events.each do |event| %>
+            <div class = <%event.id%>>
+                <h4>Event: <%=link_to event.desc, event_path(event.id) %></h2>
+                <h5>Time: <%= event.time %></h5>
+            </div>
+        <%end%>
+    </td></tr>
     <% end %>
 </table>

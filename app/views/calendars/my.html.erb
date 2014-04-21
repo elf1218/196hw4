@@ -1,4 +1,5 @@
 <h1>My Calendars</h1>
+<button class="btn">Show Events</button>
 <table>
     <tr>
         <td>title</td>
@@ -11,5 +12,13 @@
                 <%= link_to "destroy calendar", calendar, confirm: "you sure you want to do this?", method: :delete %>
             </td>
         </tr>
+        <tr class="events"><td>
+            <% calendar.events.each do |event| %>
+                <div class = <%event.id%>>
+                    <h4>Event: <%=link_to event.desc, event_path(event.id) %></h2>
+                    <h5>Time: <%= event.time %></h5>
+                </div>
+            <%end%>
+        </td></tr>
     <% end %>
 </table>
