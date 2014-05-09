@@ -1,19 +1,21 @@
-HEROKU: http://polar-ravine-2265.herokuapp.com/
+HEROKU SITE: http://polar-ravine-2265.herokuapp.com/
 
 Final Project!
 
 This app is a calendar app. Users can create an account, then create calendars, and create events on calendars (with times and stuff). Most of this project was finished over the course of the semester - the final submission is mainly a fine-tuning and aesthetic retouching to make it feel more polished and complete - main changes in this final tune-up involved giving all the tables some borders (they looked awful and confusing before), making the events-listing in calendars much less cluttered-feeling, and changing the overall color-scheme. Also, login button moved to top-right, and a sign-up button added - just some small quality of life changes! Everything capitalized properly so the overall project looks much more polished, too.
 
+Overall notes: Overall, I found this class and project very rewarding - Ruby is really intuitive and fun to use, and it was a pretty cool surprise how much functionality I could throw onto a site with one half-credit of learning! In terms of the difficulties I had with this course and the main problems I encountered, I definitely spent the most troubleshooting time just struggling and wrestling with heroku, trying to get it to do what I wanted it to do! Luckily, through extensive googling and the struggles of others who've encountered similar issues before me, I was able to resolve most of it in due time (although it was pretty frustrating). Other than that, most of what was needed to be done in this project was well-taught in class. 
+
 CSS: Most of the styling CSS is in application.css.scss, as most of my styles are global and consistent across the site - in general, I use CSS to create the overall look of the site, the top-bar and the color scheme, as well as the look of all the tables (specifically the bordering, and consistent font sizes/weights).
 
 Gem: Devise is used for this project, to handle user log-in, sign up, and related features. Devise can be found at: https://github.com/plataformatec/devise. Devise documentation can be found at: http://rubydoc.info/github/plataformatec/devise/master/frames.
 
-Addons: The addon I used was SendGrid, and I used that to send out email alerts - specifically, when somebody created an event on a calendar, the calendar owner recieves an email notifying them of that. 
+Addons: The addon I used was SendGrid, and I used that to send out email alerts - specifically, when somebody created an event on a calendar, the calendar owner recieves an email notifying them of that. Documentation for that can be found at https://devcenter.heroku.com/articles/sendgrid.
 
-Javascript:
+Javascript: On this app, the javascript is located in /app/assets/javascripts/calendars.js. I use javascript for both the 'My Calendars' and 'All Calendars' pages. When the 'Show Events' Button is pressed, the button text turns to 'Hide Events' and, under each Calendar, the events that it has are shown. After that, if you press 'Hide Events', the button reverts to 'Show Events' and the events are hidden again.
 
-Validations:
+Validations: For Calendar Title, I used the three validations: (presence: true, uniqueness: true, length: {maximum: 50}). I felt like it was necessary for the Calendar titles to be both unique and existing, as the Title is used as the external identifier for the Title. I also felt like a reasonable length for a title was under 50 characters - any longer than that and it's pretty excessive. For the Event Description, I used the validations (length: {maximum: 50}, presence: true). Again, with the Description being an identifier, I felt that it was at least necessary for the description to exist (even if it didn't have to be unique, as events also have the time to tell them apart), and again, I felt like under 50 characters was reasonable.
 
-Queries:
+Queries: For calendars (specifically, the 'Show' of individual calendars), the next 5 events (sorted by time) are shown. For this to happen, I used the Condition, Ordering and Limits queries (conditioning to find events belonging to the calendar, ordering to sort by time and limit to limit it to 5). Also, the 'My Calendars' and 'My Events' options both use the Condition query, to find all the Calendars/Events that belong to the current signed in user.
 
-Database: 
+Database: My overall database structure is as follows: I have 3 resources - Users, Calendars and Events. Calendars belong_to users and has_many Events, while Events belong_to both users and Calendars. Users is setup for CRUD via Devise (you can create, view/read, edit/update and delete your account from what is provided by Devise). Both Calendars and Events have a very similar structure, with the ability to create new ones, view a list of all of them (where you then have the option to read an individual one). Furthermore, through the 'My Events'/'My Calendars' page, you can edit and delete events and Calendars belonging to you! 
