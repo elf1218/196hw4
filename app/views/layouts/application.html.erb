@@ -10,39 +10,42 @@
 
     <div class="navbar">
         <ul class="nav">
-            <li class='dropdown'><a class="nav-link" href="#">Events</a>
+            <li class='dropdown'><%= link_to "Events", events_path, :class => "nav-link" %>
                 <ul>
-                    <li><%= link_to "new event", new_event_path %></li>
-                    <li><%= link_to "all events", events_path %></li>
-                    <li><%= link_to "my events", myev_path %></li>
+                    <li><%= link_to "Create Event", new_event_path %></li>
+                    <li><%= link_to "All Events", events_path %></li>
+                    <li><%= link_to "My Events", myev_path %></li>
                 </ul>
             </li>
-            <li class='dropdown'><a class="nav-link" href="#">Calendars</a>
+            <li class='dropdown'><%= link_to "Calendars", calendars_path, :class => "nav-link"%>
                 <ul>
-                    <li><%= link_to "new calendar", new_calendar_path %></li>
-                    <li><%= link_to "all calendars", calendars_path %></li>
-                    <li><%= link_to "my calendars", mycal_path %></li>
+                    <li><%= link_to "Create Calendar", new_calendar_path %></li>
+                    <li><%= link_to "All Calendars", calendars_path %></li>
+                    <li><%= link_to "My Calendars", mycal_path %></li>
                 </ul>
             </li>
-            <% if !user_signed_in? %>
-            <li> 
-                <%=link_to "Login", new_user_session_path, :class => "nav-link" %>
-            </li>
-            <%else%>
-            <li>
-                <%=link_to "Edit Profile", edit_user_registration_path, :class => "nav-link" %>
-            </li>
-            <li>
-                <%=link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
-            </li>
+            <div id='right-nav'>
+                <% if !user_signed_in? %>
+                <li>
+                    <%=link_to "Sign Up", new_user_registration_path, :class => "nav-link" %>
+                </li>
+                <li> 
+                    <%=link_to "Login", new_user_session_path, :class => "nav-link" %>
+                </li>
+                <%else%>
+                <li>
+                    <%=link_to "Edit Profile", edit_user_registration_path, :class => "nav-link" %>
+                </li>
+                <li>
+                    <%=link_to "Logout", destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+                </li>
 
-            <%end%>
+                <%end%>
+            </div>
             
         </ul>
     </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alerts"><%= alert %></p>
 
 <div class="content">
     <%= yield %>

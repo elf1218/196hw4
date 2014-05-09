@@ -1,5 +1,17 @@
 HEROKU: http://polar-ravine-2265.herokuapp.com/
 
-HW10: Javascript. Viewing the lists of calendars (my calendars/all calendars) now has a button that lets you expand out events below calendars!
+Final Project!
 
-Writing the JS itself wasn't particularly difficult, but there were a few major bugs that took forever to figure out. Firstly, my JS would stop working whenver I changed pages and I had no idea why for the longest time, until I googled it and finally figured out that it was to do with turbolinks, so I fixed that and it works! Also, heroku refused to load my JS at all until I precompiled assets, so that took a while to figure out too.
+This app is a calendar app. Users can create an account, then create calendars, and create events on calendars (with times and stuff). Most of this project was finished over the course of the semester - the final submission is mainly a fine-tuning and aesthetic retouching to make it feel more polished and complete!
+
+Gems:
+
+Addons:
+
+Javascript:
+
+Validations:
+
+Queries:
+
+Database: 

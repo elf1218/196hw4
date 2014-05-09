@@ -13,7 +13,7 @@
  */
 
 body{
-    background-image: url("background.png");
+    background-image: -webkit-linear-gradient(right, #668888, #BBCCCC);
     margin: 0;
     padding: 0;
     line-height: 17px;
@@ -35,7 +35,7 @@ body{
     position: relative;
     top:0;
     width: 100%;
-    background-image: -webkit-linear-gradient(top, #696969, #3f3f3f);
+    background-image: -webkit-linear-gradient(top, #006666, #004444);
     height: 42px;
     box-shadow: 0px 0px 10px #333;
 }
@@ -80,7 +80,7 @@ ul{
     display: block;
     float: none; 
     list-style-type: none;
-    background-color:#3f3f3f;
+    background-color:#005555;
     padding: 5px;
 }
 
@@ -95,4 +95,32 @@ ul{
     color: #c5c5c5;
     text-decoration: none;
     text-shadow: 0 1px 0 #282828;
+}
+
+#right-nav {
+    float: right;
+}
+
+.field p{
+    color: #221111;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.table-header{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+td{
+    outline: #000000 solid 2px;
+}
+
+.show-header{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.show-info{
+    font-size: 13px;
 }

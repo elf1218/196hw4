@@ -2,24 +2,31 @@
 <h1>My Calendars</h1>
 <button class="btn">Show Events</button>
 <table>
-    <tr>
-        <td>title</td>
+    <tr class="table-header">
+        <td>Title</td>
     </tr>
     <% @calendars.each do |calendar| %>
         <tr>
             <td><%= link_to calendar.title, calendar_path(calendar.id) %></td>
-            <td><%= link_to "edit calendar", edit_calendar_path(calendar.id) %> </td>
+            <td><%= link_to "Edit Calendar", edit_calendar_path(calendar.id) %> </td>
             <td>
-                <%= link_to "destroy calendar", calendar, confirm: "you sure you want to do this?", method: :delete %>
+                <%= link_to "Delete Calendar", calendar, confirm: "Are you sure you want to do this? This deletion is not reversible.", method: :delete %>
             </td>
         </tr>
         <tr class="events"><td>
+        <table>
+            <tr class = "table-header">
+                <td>Description</td>
+                <td>Time</td>
+            </tr>
             <% calendar.events.each do |event| %>
-                <div class = <%event.id%>>
-                    <h4>Event: <%=link_to event.desc, event_path(event.id) %></h2>
-                    <h5>Time: <%= event.time %></h5>
-                </div>
+                <tr>
+                    <td><%=link_to event.desc, event_path(event.id) %></td>
+                    <td><%= event.time %></td>
+                </tr>
             <%end%>
+
+        </table>
         </td></tr>
     <% end %>
 </table>

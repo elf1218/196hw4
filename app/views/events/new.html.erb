@@ -1,17 +1,17 @@
 <%= form_for(@event) do |f| %>
     <div class="field">
-        <p>time</p>
+        <p>Time of Event:</p>
         <%= f.datetime_select :time%>
     </div>
     <div class="field">
-        <p>description</p>
+        <p>Event Description:</p>
         <%= f.text_field :desc%>
     </div>
     <div class="field">
         <%= f.hidden_field :user_id, :value=>current_user.id %>
     </div>
     <div class="field">
-        <p>calendar</p>
+        <p>Parent Calendar:</p>
         <%= f.collection_select :calendar_id, Calendar.all, :id, :title %>
     </div>
     <div class="actions">

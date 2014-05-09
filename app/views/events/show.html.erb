@@ -1,6 +1,6 @@
 <div>
-    <h2>Time: <%= @event.time %></h2>
-    <p>description: <%= @event.desc %></p>
-    <p>User: <%= @event.user.email %></p>
-    <p>Calendar: <%= link_to @event.calendar.title, calendar_path(@event.calendar.id) %></p>
+    <p class="show-header"><%= @event.desc %></p>
+    <p class="show-info">Time: <%= @event.time %><p>
+    <p class="show-info">User: <%= @event.user.email %></p>
+    <p class="show-info">Calendar: <%= link_to @event.calendar.title, calendar_path(@event.calendar.id) %></p>
 </div>
