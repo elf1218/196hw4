@@ -7,8 +7,10 @@ class Notifications < ActionMailer::Base
   #   en.notifications.new_event.subject
   #
   def new_event(event)
-    @greeting = "You've created a new event!"
+    @greeting = "Hello!"
     @id = event.id
+    @desc = event.desc
+    @title = event.calendar.title
     mail to: event.calendar.user.email
   end
 end

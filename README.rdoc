@@ -2,11 +2,13 @@ HEROKU: http://polar-ravine-2265.herokuapp.com/
 
 Final Project!
 
-This app is a calendar app. Users can create an account, then create calendars, and create events on calendars (with times and stuff). Most of this project was finished over the course of the semester - the final submission is mainly a fine-tuning and aesthetic retouching to make it feel more polished and complete!
+This app is a calendar app. Users can create an account, then create calendars, and create events on calendars (with times and stuff). Most of this project was finished over the course of the semester - the final submission is mainly a fine-tuning and aesthetic retouching to make it feel more polished and complete - main changes in this final tune-up involved giving all the tables some borders (they looked awful and confusing before), making the events-listing in calendars much less cluttered-feeling, and changing the overall color-scheme. Also, login button moved to top-right, and a sign-up button added - just some small quality of life changes! Everything capitalized properly so the overall project looks much more polished, too.
 
-Gems:
+CSS: Most of the styling CSS is in application.css.scss, as most of my styles are global and consistent across the site - in general, I use CSS to create the overall look of the site, the top-bar and the color scheme, as well as the look of all the tables (specifically the bordering, and consistent font sizes/weights).
 
-Addons:
+Gem: Devise is used for this project, to handle user log-in, sign up, and related features. Devise can be found at: https://github.com/plataformatec/devise. Devise documentation can be found at: http://rubydoc.info/github/plataformatec/devise/master/frames.
+
+Addons: The addon I used was SendGrid, and I used that to send out email alerts - specifically, when somebody created an event on a calendar, the calendar owner recieves an email notifying them of that. 
 
 Javascript:
 
